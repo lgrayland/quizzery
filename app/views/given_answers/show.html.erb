@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Participation:</strong>
+  <%= @given_answer.participation_id %>
+</p>
+
+<p>
+  <strong>Quiz question:</strong>
+  <%= @given_answer.quiz_question_id %>
+</p>
+
+<p>
+  <strong>Answer choice:</strong>
+  <%= @given_answer.answer_choice_id %>
+</p>
+
+<%= link_to 'Edit', edit_given_answer_path(@given_answer) %> |
+<%= link_to 'Back', given_answers_path %>

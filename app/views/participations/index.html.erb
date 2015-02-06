@@ -1,0 +1,27 @@
+<h1>Listing participations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quiz</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @participations.each do |participation| %>
+      <tr>
+        <td><%= participation.quiz_id %></td>
+        <td><%= participation.user_id %></td>
+        <td><%= link_to 'Show', participation %></td>
+        <td><%= link_to 'Edit', edit_participation_path(participation) %></td>
+        <td><%= link_to 'Destroy', participation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Participation', new_participation_path %>

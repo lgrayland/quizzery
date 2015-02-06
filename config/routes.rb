@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  
+  resources :participations
+
+  resources :games
+
+  resources :given_answers
+
+  resources :answer_choices
+
+  resources :questions
+
+  resources :quiz_questions
+
+  resources :quizzes
+
+  resources :participatons
 
   devise_for :users
   root to: "home#index"

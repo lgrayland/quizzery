@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quiz:</strong>
+  <%= @participaton.quiz_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @participaton.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_participaton_path(@participaton) %> |
+<%= link_to 'Back', participatons_path %>
