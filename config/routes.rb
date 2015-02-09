@@ -1,30 +1,31 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  
+
   resources :participations
 
   resources :games
 
   resources :given_answers
 
-  resources :answer_choices
-
-  resources :questions
-
   resources :quiz_questions
 
   resources :quizzes
+
+  resources :questions do
+    resources :answer_choices
+  end
 
   resources :participatons
 
   devise_for :users
 
-  authenticated :user do
-    root 'quizzes#index', as: :authenticated_root
-  end
+  devise_scope :user do
+    authenticated :user do
+      root 'quizzes#index', as: :authenticated_root
+    end
 
-  unauthenticated do
-    root 'devise/sessions#new', as: :unauthenticated_root
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

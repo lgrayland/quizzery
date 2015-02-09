@@ -1,1 +1,10 @@
 %nav
+  - if current_user 
+    / <li><%= link_to "Profile", user_path(current_user) %></li>
+    / <li><%= link_to "Edit Profile", edit_user_path(current_user)  %></li>
+    / <li><%= link_to "Create Group", new_group_path %></li>
+    %li
+    = link_to "Log out", destroy_user_session_path, method: :delete
+  - else 
+    %li 
+    = link_to "Log in", new_user_session_path
