@@ -19,14 +19,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  devise_scope :user do
-    authenticated :user do
-      root 'quizzes#index', as: :authenticated_root
-    end
+  authenticated :user do
+    root 'quizzes#index', as: :authenticated_root
+  end
 
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
