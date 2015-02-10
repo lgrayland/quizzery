@@ -1,5 +1,9 @@
-<h1>New quiz_question</h1>
+<h2>Create Group</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', quiz_questions_path %>
+<% @questions.each do |question| %>
+  <%= form_for @quiz_question do |f| %>
+    <%= f.hidden_field :quiz_id %>
+    <%= render partial: 'form', locals: { f: f, question: question } %>
+    <%= f.submit 'Add question' %>
+    <% end %>
+<% end %>

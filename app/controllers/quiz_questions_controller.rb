@@ -13,7 +13,9 @@ class QuizQuestionsController < ApplicationController
   end
 
   def new
-    @quiz_question = QuizQuestion.new
+    @quiz = Quiz.find(params[:quiz_id])
+    @quiz_question = @quiz.quiz_questions.new
+    @questions = Question.excluding(@quiz.questions)
     respond_with(@quiz_question)
   end
 

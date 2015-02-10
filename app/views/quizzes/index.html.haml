@@ -1,0 +1,4 @@
+- @quizzes.each do |quiz|
+ %h2
+  = link_to quiz.name
+  = link_to 'Show', quiz_path(quiz.id)

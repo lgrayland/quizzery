@@ -1,0 +1,8 @@
+%h1
+  = @quiz.name
+%h2
+  Created by
+
+=link_to 'Add Questions', new_quiz_question_path(quiz_id: @quiz.id)
+
+=link_to 'Create a Question', new_question_path
