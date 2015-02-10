@@ -25,7 +25,7 @@ class QuizQuestionsController < ApplicationController
   def create
     @quiz_question = QuizQuestion.new(quiz_question_params)
     @quiz_question.save
-    respond_with(@quiz_question)
+    respond_with(@quiz_question.quiz)
   end
 
   def update

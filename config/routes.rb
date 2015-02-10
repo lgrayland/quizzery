@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   resources :quizzes 
 
-  resources :questions do
-    resources :answer_choices
-  end
+  resources :questions
+
+  resources :answer_choices
 
   resources :participatons
 

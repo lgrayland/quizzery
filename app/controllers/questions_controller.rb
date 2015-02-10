@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @answer_choices = AnswerChoice.where(question_id: @question.id)
     respond_with(@question)
   end
 

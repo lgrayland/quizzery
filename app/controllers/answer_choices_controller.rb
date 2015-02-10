@@ -13,7 +13,8 @@ class AnswerChoicesController < ApplicationController
   end
 
   def new
-    @answer_choice = AnswerChoice.new
+    @question = Question.find(params[:question_id])
+    @answer_choice = @question.answer_choices.new
     respond_with(@answer_choice)
   end
 
@@ -23,7 +24,7 @@ class AnswerChoicesController < ApplicationController
   def create
     @answer_choice = AnswerChoice.new(answer_choice_params)
     @answer_choice.save
-    respond_with(@answer_choice)
+    respond_with(@answer_choice.question)
   end
 
   def update

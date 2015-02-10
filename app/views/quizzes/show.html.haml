@@ -1,8 +1,13 @@
 %h1
   = @quiz.name
-%h2
-  Created by
+%p
+  Created by:
 
+- @quiz.questions.each do |question|
+  = question.question
+  %br
+  
+%br
 =link_to 'Add Questions', new_quiz_question_path(quiz_id: @quiz.id)
 
 =link_to 'Create a Question', new_question_path
