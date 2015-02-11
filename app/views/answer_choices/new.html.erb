@@ -1,6 +1,0 @@
-<h2>Create an answer</h2>
-<%= form_for @answer_choice do |f| %>
-<%= f.hidden_field :question_id %>
-<%= render partial: 'form', locals: { f: f } %>
-<%= f.submit 'Create answer' %>
-<% end %>

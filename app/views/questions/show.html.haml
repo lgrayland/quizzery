@@ -12,7 +12,7 @@
 
 - @answer_choices.each do |answer|
   = answer.answer
-  = link_to 'Delete'
+  = link_to 'Delete', answer_choice_path(answer), method: :delete, data: {confirm: "Are you sure"}
 
 %br
 %br

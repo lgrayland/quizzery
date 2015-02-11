@@ -34,7 +34,7 @@ class AnswerChoicesController < ApplicationController
 
   def destroy
     @answer_choice.destroy
-    respond_with(@answer_choice)
+    respond_with(@answer_choice.question)
   end
 
   private

@@ -1,9 +1,0 @@
-<h2>Choose a question to add</h2>
-
-<% @questions.each do |question| %>
-  <%= form_for @quiz_question do |f| %>
-    <%= f.hidden_field :quiz_id %>
-    <%= render partial: 'form', locals: { f: f, question: question } %>
-    <%= f.submit 'Add question' %>
-    <% end %>
-<% end %>
