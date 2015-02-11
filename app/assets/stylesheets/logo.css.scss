@@ -1,0 +1,67 @@
+@-webkit-keyframes music {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 200px;
+  }
+  100% {
+    height: 100px;
+  }
+}
+
+@mixin equalize($number) {
+  -webkit-animation: music #{$number}s linear infinite;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.equalizer {
+  margin:0 auto;
+  height: 200px;
+  width: 385px;
+  overflow: hidden;
+  background-color:#330864;
+}
+
+.equalizer-item {
+  display: inline-block;
+  background:rgb(32, 242, 9);
+  width: 30px;
+  height: 200px;
+}
+
+.equalizer-none {
+  opacity: 0;
+  width: 1px;
+}
+
+.equalizer-1 {
+  @include equalize(.7);
+}
+ 
+.equalizer-2 {
+  @include equalize(.5);
+}
+
+.equalizer-3 {
+  @include equalize(.9);
+}
+
+.equalizer-4 {
+  @include equalize(.8);
+}
+
+.equalizer-5 {
+  @include equalize(.6);
+}
+
+.equalizer-6 {
+  @include equalize(.9);
+}
