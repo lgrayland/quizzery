@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   end
 
   def new
+    @quizzes = Quiz.all
     @game = Game.new
     respond_with(@game)
   end
@@ -23,7 +24,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.save
-    respond_with(@game)
+    redirect_to(new_participation_path)
   end
 
   def update
@@ -42,6 +43,6 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      params.require(:game).permit(:quiz_id, :creator_id)
+      params.require(:game).permit(:quiz_id, :creator_id, :name)
     end
 end

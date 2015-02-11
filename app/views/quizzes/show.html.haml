@@ -4,9 +4,9 @@
   Created by:
   =@quiz.owner.try(:name)
 
-- @quiz.questions.each do |question|
-  = question.question
-  %br
+/ - @quiz.questions.each do |question|
+/   = question.question
+/   %br
   
 %br
 =link_to 'Add Questions', new_quiz_question_path(quiz_id: @quiz.id)

@@ -13,7 +13,9 @@ class ParticipationsController < ApplicationController
   end
 
   def new
+    @users = User.all
     @participation = Participation.new
+    # @users = User.excluding(@participation.users)
     respond_with(@participation)
   end
 
@@ -23,7 +25,7 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participation_params)
     @participation.save
-    respond_with(@participation)
+    redirect_to(new_participation_path)
   end
 
   def update
@@ -42,6 +44,6 @@ class ParticipationsController < ApplicationController
     end
 
     def participation_params
-      params.require(:participation).permit(:quiz_id, :user_id)
+      params.require(:participation).permit(:quiz_id, :user_id, :game_id)
     end
 end

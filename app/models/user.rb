@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :excluding, -> (*users) { where(["userss.id NOT IN (?)", (users.flatten.compact.map(&:id) << 0)]) }
+
   def name
     [first_name, last_name].join(" ")
   end

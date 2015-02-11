@@ -1,6 +1,7 @@
 - @quizzes.each do |quiz|
   %h2
     = quiz.name
+  %br
   = link_to 'Show', quiz_path(quiz.id)
-%br
-= link_to 'Create quiz', new_quiz_path
+  = link_to 'Delete', quiz_path(quiz), method: :delete, data: {confirm: "Are you sure"}
+  / = link_to 'Play game', game_path(quiz.id)

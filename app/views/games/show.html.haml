@@ -1,0 +1,6 @@
+- @game.quiz.quiz_questions.each do |quiz_question|
+  = quiz_question.question.question
+  %br
+  - quiz_question.question.answer_choices.each do |answer|
+    %button
+      = answer.answer

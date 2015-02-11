@@ -14,8 +14,6 @@ Rails.application.routes.draw do
 
   resources :answer_choices
 
-  resources :participatons
-
   devise_for :users
 
   devise_scope :user do
