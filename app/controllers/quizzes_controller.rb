@@ -22,6 +22,7 @@ class QuizzesController < ApplicationController
 
   def create
     @quiz = Quiz.new(quiz_params)
+    @quiz.owner = current_user
     @quiz.save
     respond_with(@quiz)
   end

@@ -2,6 +2,7 @@
   = @quiz.name
 %p
   Created by:
+  =@quiz.owner.try(:name)
 
 - @quiz.questions.each do |question|
   = question.question
