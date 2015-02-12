@@ -1,6 +1,8 @@
+%h1
+  = @game.name
+
 - @game.quiz.quiz_questions.each do |quiz_question|
   = quiz_question.question.question
   %br
   - quiz_question.question.answer_choices.each do |answer|
-    %button
-      = answer.answer
+    = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)

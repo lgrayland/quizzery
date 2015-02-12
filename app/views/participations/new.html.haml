@@ -1,5 +1,6 @@
 %h2
-  Add players
+  Add players to
+  = @game.name
 
 = form_for @participation do |f|
   = render partial: 'form', locals: { f: f }

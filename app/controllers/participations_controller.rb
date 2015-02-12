@@ -13,9 +13,9 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-    @users = User.all
-    @participation = Participation.new
-    # @users = User.excluding(@participation.users)
+    @game = Game.find(params[:game_id])
+    @participation = @game.participations.new
+    @users = User.excluding(@game.participating_users)
     respond_with(@participation)
   end
 

@@ -1,2 +1,3 @@
-= f.collection_select(:game_id, Game.all, :id, :name)
-= f.collection_select(:user_id, @users, :id, :name)
+- @users.each do |user|
+  = label :user_ids, user.name
+  = check_box_tag :user_ids, user.id, name: 'participation[user_ids][]'

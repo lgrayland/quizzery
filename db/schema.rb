@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206153951) do
+ActiveRecord::Schema.define(version: 20150212145730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20150206153951) do
 
   create_table "given_answers", force: true do |t|
     t.integer  "participation_id"
-    t.integer  "question_id"
-    t.integer  "answer_choices_id"
+    t.integer  "quiz_question_id"
+    t.integer  "answer_choice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
