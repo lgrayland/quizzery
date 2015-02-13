@@ -1,6 +1,6 @@
 class ParticipationsController < ApplicationController
   before_action :set_participation, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_game, only: [:new, :create]
   respond_to :html
 
   def index
@@ -9,11 +9,11 @@ class ParticipationsController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:game_id])
     respond_with(@participation)
   end
 
   def new
-    @game = Game.find(params[:game_id])
     @participation = @game.participations.new
     @users = User.excluding(@game.participating_users)
     respond_with(@participation)
@@ -23,9 +23,14 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @participation = Participation.new(participation_params)
-    @participation.save
-    redirect_to(new_participation_path)
+    params[:user_ids].each do |user_id|
+      @participation = @game.participations.create!(user_id: user_id)
+    end
+    if @participation.save
+      redirect_to(game_participation_path(@game, @participation))
+    else
+      redirect_to :back
+    end
   end
 
   def update
@@ -39,6 +44,10 @@ class ParticipationsController < ApplicationController
   end
 
   private
+    def set_game
+      @game = Game.find(params[:game_id])
+    end
+
     def set_participation
       @participation = Participation.find(params[:id])
     end
