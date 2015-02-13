@@ -1,4 +1,3 @@
-- @participations.each do |participation|
+- @games.each do |game|
   %li
-    = participation.inspect
-    = link_to "Play Game", game_path(participation.game)
+    = game.name

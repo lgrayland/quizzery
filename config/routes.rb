@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  
-
   resources :games do
     post '/questions/:quiz_question_id/answer/:answer_choice_id/give', controller: :given_answers, action: :create, as: :given_answer
     resources :participations
