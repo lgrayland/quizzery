@@ -9,12 +9,17 @@ class GivenAnswersController < ApplicationController
     quiz_question = QuizQuestion.find(params[:quiz_question_id])
     participation = game.participation_for(current_user)
 
-
-
     given_answer = participation.given_answers.new(quiz_question: quiz_question, answer_choice: answer_choice )
 
     given_answer.save
-
+      
+    if given_answer.errors.any?
+      messages = []
+      given_answer.errors.full_messages.each do |message|
+        messages.push(message)
+      end
+      flash[:alert] = messages.first  
+    end
     respond_with(game)
   end
 
