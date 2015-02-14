@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'cancancan'
 gem 'haml-rails'
+gem 'bourbon'
+gem 'neat'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'

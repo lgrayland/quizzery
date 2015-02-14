@@ -1,12 +1,15 @@
 %nav
-  - if current_user 
-    / <li><%= link_to "Profile", user_path(current_user) %></li>
-    / <li><%= link_to "Edit Profile", edit_user_path(current_user)  %></li>
+  - if current_user
+    %li.username
+      = current_user.email 
     %li
       = link_to "Log out", destroy_user_session_path, method: :delete
-  - else 
-    %li 
-      = link_to "Log in", new_user_session_path
+  - else
+    %li
+      = link_to "Sign In", new_user_session_path
+    %li
+      = link_to "Register", new_user_registration_path
+  
   %li
     = link_to 'Create quiz', new_quiz_path
   %li

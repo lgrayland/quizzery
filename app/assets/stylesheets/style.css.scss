@@ -8,6 +8,7 @@ body {
     top:0;
     width:100%;
     height:50px;
+    line-height: 50px;
     background-color:#330864;
 
     a {
@@ -18,6 +19,10 @@ body {
     li {
       display:inline-block;
     }
+  }
+  .container {
+    @include outer-container;
+
   }
   .logo {
     border-radius:15px;

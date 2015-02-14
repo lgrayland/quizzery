@@ -10,10 +10,11 @@
   %body
 
     = render 'layouts/navigation'
+    
+    .container
+      %p.notice
+        = notice
+      %p.alert
+        = alert
 
-    %p.notice
-      = notice
-    %p.alert
-      = alert
-
-    = yield
+      = yield
