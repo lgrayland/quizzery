@@ -29,7 +29,7 @@ class AnswerChoicesController < ApplicationController
 
   def update
     @answer_choice.update(answer_choice_params)
-    respond_with(@answer_choice)
+    respond_with(@answer_choice.question)
   end
 
   def destroy
