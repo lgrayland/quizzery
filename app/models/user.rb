@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :created_quizzes, foreign_key: :owner_id, class_name: 'Quiz'
+  has_many :created_games, foreign_key: :creator_id, class_name: 'Game'
+  has_many :participations
+
   scope :excluding, -> (*users) { where(["users.id NOT IN (?)", (users.flatten.compact.map(&:id) << 0)]) }
 
   def name
