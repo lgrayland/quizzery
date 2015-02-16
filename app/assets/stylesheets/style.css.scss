@@ -16,18 +16,24 @@ body {
       color:white;
       a {
         color:white;
-        text-decoration:none;
-        display:block;
       }
     } 
   }
   .container {
     @include outer-container;
     .left_half {
-      @include span-columns(4)
+      @include span-columns(4);
     }
     .right_half {
-      @include span-columns(4)
+      @include span-columns(4);
+    }
+    .nick_name {
+      @include span-columns(4);
+      @include shift(2);
+    }
+    .prof_pic {
+      @include span-columns(2);
+      @include omega();
     }
 
   }
@@ -36,9 +42,5 @@ body {
     margin-top:1em;
     width:400px;
   }
-  img {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #6B1229;
-  }
+
 }

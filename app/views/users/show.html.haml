@@ -1,7 +1,8 @@
-%h1
+%h1.nick_name
   = @user.nick_name
 
-= image_tag @user.user_image.url
+.prof_pic
+  = image_tag @user.user_image.thumb.url
 
 - @user.participations.each do |participation|
   %h2
