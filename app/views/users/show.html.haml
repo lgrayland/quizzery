@@ -1,6 +1,8 @@
 %h1
   = @user.nick_name
 
+= image_tag @user.user_image.url
+
 - @user.participations.each do |participation|
   %h2
     Game name:
