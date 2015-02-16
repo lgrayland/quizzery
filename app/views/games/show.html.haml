@@ -6,5 +6,6 @@
   %br
   - quiz_question.question.answer_choices.each do |answer|
     = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)
+  %br
     
 / only display the answers if one hasnt been given else display answered

@@ -1,2 +1,12 @@
 %h1
   = @user.first_name
+
+- @user.participations.each do |participation|
+  %h2
+    Game name:
+    = participation.game.try :name
+  %h2
+    Quiz name:
+    = participation.game.quiz.try :name
+  = link_to "Play Game", game_path(participation.game)
+  %br
