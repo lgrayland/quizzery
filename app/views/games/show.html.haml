@@ -1,11 +1,24 @@
 %h1
   = @game.name
 
-- @game.quiz.quiz_questions.each do |quiz_question|
-  = quiz_question.question.question
-  %br
-  - quiz_question.question.answer_choices.each do |answer|
-    = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)
-  %br
-    
-/ only display the answers if one hasnt been given else display answered
+.left_half
+  - @game.quiz.quiz_questions.each do |quiz_question|
+    = quiz_question.question.question
+    %br
+    - quiz_question.question.answer_choices.each do |answer|
+      = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)
+    %br
+
+.right_half
+  - @participation.given_answers.each do |given_answer|
+    %p
+      For the question "
+      = given_answer.quiz_question.question.question
+      ", you said 
+      = given_answer.answer_choice.answer
+    - if given_answer.answer_choice.correct
+      %p
+        Correct, well done
+    - else
+      %p
+        Wrong, not so great

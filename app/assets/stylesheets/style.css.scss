@@ -23,6 +23,12 @@ body {
   }
   .container {
     @include outer-container;
+    .left_half {
+      @include span-columns(4)
+    }
+    .right_half {
+      @include span-columns(4)
+    }
 
   }
   .logo {

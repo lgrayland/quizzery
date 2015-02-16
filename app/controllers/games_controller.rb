@@ -9,6 +9,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @participation = @game.participation_for(current_user)
     respond_with(@game)
   end
 
