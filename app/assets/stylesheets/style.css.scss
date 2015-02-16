@@ -27,14 +27,6 @@ body {
     .right_half {
       @include span-columns(4);
     }
-    .nick_name {
-      @include span-columns(4);
-      @include shift(2);
-    }
-    .prof_pic {
-      @include span-columns(2);
-      @include omega();
-    }
 
   }
   .logo {

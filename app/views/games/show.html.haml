@@ -2,7 +2,7 @@
   = @game.name
 
 %h2
-  =@game.creator.try(:name)
+  =@game.creator.try(:nick_name)
 
 .left_half
   - @game.quiz.quiz_questions.each do |quiz_question|
@@ -25,3 +25,13 @@
     - else
       %p
         Wrong, not so great
+
+/ if game playing
+/   if current participation has answered game current question
+/     please refresh
+/   else
+/     show question and let answer
+/   end
+/ else
+/   please wait
+/ end

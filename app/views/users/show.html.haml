@@ -1,7 +1,5 @@
-%h1.nick_name
+%h1
   = @user.nick_name
-
-.prof_pic
   = image_tag @user.user_image.thumb.url
 
 - @user.participations.each do |participation|
@@ -11,5 +9,12 @@
   %h2
     Quiz name:
     = participation.game.quiz.try :name
+
+  %h2
+    current score:
+    = participation.current_score
+    out of
+    = participation.game.quiz.questions.count
+
   = link_to "Play Game", game_path(participation.game)
   %br
