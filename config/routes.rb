@@ -13,20 +13,18 @@ Rails.application.routes.draw do
 
   resources :answer_choices
 
-  resources :users
-
   devise_for :users
 
-  devise_scope :user do
-    authenticated :user do
-      root 'users#show', as: :authenticated_root
-    end
+  resources :users
 
-    unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
-    end
+  authenticated :user do
+    root 'users#show', as: :authenticated_root
   end
-  
+
+  unauthenticated do
+    root 'home#index'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
