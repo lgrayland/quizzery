@@ -1,6 +1,9 @@
 %h1
   = @game.name
 
+%h2
+  =@game.creator.try(:name)
+
 .left_half
   - @game.quiz.quiz_questions.each do |quiz_question|
     = quiz_question.question.question
