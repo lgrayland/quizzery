@@ -3,9 +3,17 @@ class Participation < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
   has_many :given_answers
+  has_many :answered_quiz_questions, through: :given_answers, source: :quiz_question
 
   def current_score
     given_answers.count { |given_answer| given_answer.answer_choice.correct }
   end
+
+  def current_quiz_question
+    game.quiz.quiz_questions.detect do |quiz_question|
+      !answered_quiz_question_ids.include?(quiz_question.id)
+    end
+  end
+
 
 end

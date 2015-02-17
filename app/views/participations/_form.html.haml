@@ -1,3 +1,3 @@
 - @users.each do |user|
-  = label_tag :user_ids, user.name
+  = label_tag :user_ids, user.nick_name
   = check_box_tag 'user_ids[]', user.id, name: 'user_ids[]'

@@ -1,7 +1,12 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :start]
 
   respond_to :html
+
+  def start
+    @game.play!
+    redirect_to @game
+  end
 
   def index
     @games = Game.all

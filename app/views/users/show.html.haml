@@ -2,15 +2,17 @@
   = @user.nick_name
   = image_tag @user.user_image.thumb.url
 
+%h2
+  Game invatations
 - @user.participations.each do |participation|
-  %h2
+  %h3
     Game name:
     = participation.game.try(:name)
-  %h2
+  %h3
     Quiz name:
     = participation.game.quiz.name
 
-  %h2
+  %h3
     current score:
     = participation.current_score
     out of

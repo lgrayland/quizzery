@@ -4,13 +4,19 @@
 %h2
   =@game.creator.try(:nick_name)
 
-- if @game.status? == true
-  - @game.quiz.quiz_questions.each do |quiz_question|
-    = quiz_question.question.question
-    %br
-    - quiz_question.question.answer_choices.shuffle.each do |answer|
-      = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)
-    %br
+- if @game.playing?
+  - if @participation.current_quiz_question
+    - if @participation.current_quiz_question.position <= @game.current_quiz_question.position && !@participation.answered_quiz_question_ids.include?(@participation.current_quiz_question.id) 
+      = @participation.current_quiz_question.question.question
+      %br
+      - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
+        = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer)
+      %br
+    - else
+      please wait for others to answer
+  - else
+    - @game.finish!
+    You have finished!
 
   - @participation.given_answers.each do |given_answer|
     %p
@@ -24,6 +30,9 @@
     - else
       %p
         Wrong, not so great
+- elsif @game.finished?
+  %p
+    This game has finished - you didn't win!
 - else
   %p
     Please wait for players
