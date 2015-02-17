@@ -1,25 +1,6 @@
 - if @participation.current_quiz_question
-  - if @participation.current_quiz_question.position <= @game.current_quiz_question.position && !@participation.answered_quiz_question_ids.include?(@participation.current_quiz_question.id) 
-    = @participation.current_quiz_question.question.question
-    %br
-    - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
-      = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer)
-    %br
-  - else
-    please wait for others to answer
+  = render 'next_question_to_display'
 - else
-  - @game.finish!
-  You have finished!
-
-- @participation.given_answers.each do |given_answer|
+  = render 'game_answers'
   %p
-    For the question "
-    = given_answer.quiz_question.question.question
-    ", you said 
-    = given_answer.answer_choice.answer
-  - if given_answer.answer_choice.correct
-    %p
-      Correct, well done
-  - else
-    %p
-      Wrong, not so great
+    = render 'game_score'

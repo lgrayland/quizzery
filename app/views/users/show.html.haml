@@ -19,4 +19,5 @@
     = participation.game.quiz.questions.count
 
   = link_to "Play Game", game_path(participation.game)
+  = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}
   %br

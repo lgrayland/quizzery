@@ -41,7 +41,7 @@ class ParticipationsController < ApplicationController
 
   def destroy
     @participation.destroy
-    respond_with(@participation)
+    redirect_to(authenticated_root_path)
   end
 
   private

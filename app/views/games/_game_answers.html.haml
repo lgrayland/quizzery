@@ -1,0 +1,15 @@
+- @game.finish!
+  You have finished!
+
+  - @participation.given_answers.each do |given_answer|
+  %p
+    For the question "
+    = given_answer.quiz_question.question.question
+    ", you said 
+    = given_answer.answer_choice.answer
+  - if given_answer.answer_choice.correct
+    %p
+      Correct, well done
+  - else
+    %p
+      Wrong, not so great

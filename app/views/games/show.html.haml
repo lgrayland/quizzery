@@ -8,16 +8,7 @@
   = render 'game_playing'
 - elsif @game.finished?
   %p
-    This game has finished - you didn't win!
+    This game has finished
+    = render 'game_score'
 - else
   = render 'waiting_for_start'
-
-/ if game playing/
-/   if @participation has answered game current question
-/     please refresh
-/   else
-/     show question and let answer
-/   end
-/ else/
-/   please wait/
-/ end/
