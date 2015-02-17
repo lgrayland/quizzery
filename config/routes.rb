@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :answer_choices
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :users
 

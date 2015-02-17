@@ -34,3 +34,5 @@
             = link_to "Sign In", new_user_session_path
           %li.nav-link
             = link_to "Register", new_user_registration_path
+          %li.nav-link
+            = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
