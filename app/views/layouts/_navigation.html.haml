@@ -6,17 +6,17 @@
     %nav{:role => "navigation"}
       %ul#js-navigation-menu.navigation-menu.show
         %li.nav-link.more
-          = link_to 'Games', games_path
+          = link_to 'Games', games_path if can? :read, @game
           %ul.submenu
             %li
               = link_to 'Create Game', new_game_path
         %li.nav-link.more
-          = link_to 'Quizzes', quizzes_path
+          = link_to 'Quizzes', quizzes_path if can? :read, @quiz
           %ul.submenu
             %li
               = link_to 'Create quiz', new_quiz_path
         %li.nav-link.more
-          = link_to 'Questions', questions_path
+          = link_to 'Questions', questions_path if can? :read, @question
           %ul.submenu
             %li
               =link_to 'New Question', new_question_path
