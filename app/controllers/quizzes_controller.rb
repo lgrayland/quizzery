@@ -4,7 +4,7 @@ class QuizzesController < ApplicationController
   respond_to :html
 
   def index
-    @quizzes = Quiz.all
+    @quizzes = current_user.created_quizzes
     respond_with(@quizzes)
   end
 

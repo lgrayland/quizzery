@@ -1,7 +1,9 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy, :start]
-
+  
   respond_to :html
+
+  load_and_authorize_resource
 
   def start
     @game.play!
@@ -9,7 +11,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = current_user.accessible_games
     respond_with(@games)
   end
 

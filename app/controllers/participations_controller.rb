@@ -20,6 +20,7 @@ class ParticipationsController < ApplicationController
   end
 
   def edit
+    @users = User.excluding(@participation.game.participating_users)
   end
 
   def create

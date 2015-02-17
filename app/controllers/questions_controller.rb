@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   respond_to :html
 
   def index
-    @questions = Question.all
+    @questions = current_user.created_questions
     respond_with(@questions)
   end
 
@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    @question.creator = current_user
     @question.save
     respond_with(@question)
   end
