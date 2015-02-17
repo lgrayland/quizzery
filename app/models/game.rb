@@ -8,4 +8,8 @@ class Game < ActiveRecord::Base
   def participation_for(user)
     participations.find_by(user_id: user.id)
   end
+
+  def game_playing
+    @game.status = true
+  end
 end

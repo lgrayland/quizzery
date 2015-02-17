@@ -5,10 +5,10 @@
 - @user.participations.each do |participation|
   %h2
     Game name:
-    = participation.game.try :name
+    = participation.game.try(:name)
   %h2
     Quiz name:
-    = participation.game.quiz.try :name
+    = participation.game.quiz.name
 
   %h2
     current score:

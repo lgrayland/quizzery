@@ -4,15 +4,14 @@
 %h2
   =@game.creator.try(:nick_name)
 
-.left_half
+- if @game.status? == true
   - @game.quiz.quiz_questions.each do |quiz_question|
     = quiz_question.question.question
     %br
-    - quiz_question.question.answer_choices.each do |answer|
+    - quiz_question.question.answer_choices.shuffle.each do |answer|
       = button_to answer.answer, game_given_answer_path(@game, quiz_question, answer)
     %br
 
-.right_half
   - @participation.given_answers.each do |given_answer|
     %p
       For the question "
@@ -25,13 +24,16 @@
     - else
       %p
         Wrong, not so great
+- else
+  %p
+    Please wait for players
 
-/ if game playing
-/   if current participation has answered game current question
+/ if game playing/
+/   if @participation has answered game current question
 /     please refresh
 /   else
 /     show question and let answer
 /   end
-/ else
-/   please wait
-/ end
+/ else/
+/   please wait/
+/ end/
