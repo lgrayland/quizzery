@@ -1,3 +1,7 @@
-- @questions.each do |question|
-  = question.question
-  = link_to 'Show', question_path(question)
+- if current_user.created_questions.any?
+  - @questions.each do |question|
+    = question.question
+    = link_to 'Show', question_path(question)
+-else
+  %p
+    You haven't created any questions, why not try creating one?
