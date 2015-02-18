@@ -30,13 +30,6 @@ footer {
 label {
   color:white;
 }
-.profile-pic {
-  @include border-radius(15px);
-  text-align: center;
-}
-.user-image {
-  @include border-radius(15px);
-}
 .center {
   text-align:center;
 }
