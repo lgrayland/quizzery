@@ -14,6 +14,8 @@ body {
       }
       img {
         border-radius:15px;
+        height:150px;
+        width:150px;
       }  
     }
   }
@@ -47,6 +49,12 @@ body {
   }
   .question_show {
     h1 {
+      text-align: center;
+    }
+  }
+  .home {
+    h1 {
+      font-size: 4em;
       text-align: center;
     }
   }
