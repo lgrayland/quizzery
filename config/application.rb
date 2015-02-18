@@ -24,7 +24,6 @@ module AlphaBeatQuiz
     config.autoload_paths += %W(#{config.root}/app/uploaders)
 
     # Setup new fonts folder    
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-
+    # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end
