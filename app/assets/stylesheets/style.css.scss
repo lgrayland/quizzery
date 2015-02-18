@@ -37,24 +37,31 @@ body {
       display: inline-block;
     }
   }
-  .game_results {
+  .game_results, .created_questions, .created_quizzes{
     @include outer_container;
     background:$box-color;
     border-radius:$box-radius;
     padding:$box-padding;
     margin-top: 1em;
-    h2 {
+    h1, h2 {
       text-align:center;
     }
-    .results {
+    .results, .questions, .quizzes {
       @include span-columns(3);
       @include omega(4n);
       border:1px solid black;
       float:none;
       display:inline-block;
     }
-  } 
-
+  }
+  
+  img {
+    border-radius:$box-radius;
+  }
+  .blank-avatar {
+    height:150px;
+    width:150px;
+  }
   .logo {
     border-radius:15px;
     margin-top:1em;

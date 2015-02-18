@@ -1,7 +1,13 @@
 .prof_details
   %h1
-    = @user.nick_name
+    -if @user.nick_name?
+      = @user.nick_name
+    - else
+      = @user.email
+  - if @user.user_image?    
     = image_tag @user.user_image.thumb.url
+  - else
+    = image_tag 'blank-avatar.png', class: 'blank-avatar'
 
 .game_invites
   %h2

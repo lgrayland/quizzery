@@ -8,16 +8,16 @@ class Ability
     elsif user.persisted?
       can :create, Game
       can :read, Game
-      can :update, Game, user_id: user.id
-      can :destroy, Game, user_id: user.id
+      can :update, Game
+      can :destroy, Game
       can :create, Quiz
       can :read, Quiz
-      can :update, Quiz, user_id: user.id
-      can :destroy, Quiz, user_id: user.id
+      can :update, Quiz
+      can :destroy, Quiz
       can :create, Question
       can :read, Question
-      can :update, Question, user_id: user.id
-      can :destroy, Question, user_id: user.id
+      can :update, Question
+      can :destroy, Question
     else
 
     end
