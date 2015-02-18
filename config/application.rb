@@ -27,11 +27,11 @@ module AlphaBeatQuiz
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     # Explicitly register the extensions we are interested in compiling
-    config.assets.precompile.push(Proc.new do |path|
-      File.extname(path).in? [
-            '.html', '.erb', '.haml',                         # Templates
-            '.png',  '.gif', '.jpg', '.jpeg', '.svg', '.ico', # Images
-            '.eot',  '.otf', '.svc', '.woff', '.ttf',         # Fonts
-        ]
-    end
+    # config.assets.precompile.push(Proc.new do |path|
+    #   File.extname(path).in? [
+    #         '.html', '.erb', '.haml',                         # Templates
+    #         '.png',  '.gif', '.jpg', '.jpeg', '.svg', '.ico', # Images
+    #         '.eot',  '.otf', '.svc', '.woff', '.ttf',         # Fonts
+    #     ]
+    # end
 end
