@@ -247,6 +247,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   neat
+  omniauth
   omniauth-facebook
   pg
   pry-byebug

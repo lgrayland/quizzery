@@ -10,6 +10,7 @@ gem 'rmagick'
 gem 'fog', '~> 1.3.1'
 gem 'aasm'
 gem 'acts_as_list'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
