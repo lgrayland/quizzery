@@ -17,8 +17,9 @@
     - @answer_choices.each do |answer|
       %li
         = answer.answer
+        %br
         = link_to 'Delete', answer_choice_path(answer), method: :delete, data: {confirm: "Are you sure"}, class: "button tiny radius"
         = link_to 'Edit', edit_answer_choice_path(answer), class: "button tiny radius"
 
   %br
-  =link_to 'Add Answers', new_answer_choice_path(question_id: @question.id), class: "button tiny radius"
+    =link_to 'Add Answers', new_answer_choice_path(question_id: @question.id), class: "button tiny radius"
