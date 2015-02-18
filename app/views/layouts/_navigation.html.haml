@@ -26,29 +26,20 @@
           %ul.dropdown
             %li
               =link_to 'New Question', new_question_path
-      / Left Nav Section
-      %ul.left
-        %li.has-dropdown
-          = link_to current_user.email, user_path(current_user)
-          %ul.dropdown
-            %li
-              = link_to "Log out", destroy_user_session_path, method: :delete
-            %li
-              = link_to 'Edit profile', edit_user_path(current_user) 
-
-/       %ul.left
-/       - if current_user
-/         %li.has_dropdown.username
-/           = link_to current_user.email, user_path(current_user)
-/           %ul.dropdown
-/             %li
-/               = link_to "Log out", destroy_user_session_path, method: :delete
-/             %li
-/               = link_to 'Edit profile', edit_user_path(current_user)
-/       - else
-/         %li.nav-link
-/           = link_to "Sign In", new_user_session_path
-/         %li.nav-link
-/           = link_to "Register", new_user_registration_path
-/         %li.nav-link
-/           = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+      - if current_user
+        %ul.left
+          %li.has-dropdown
+            = link_to current_user.email, user_path(current_user)
+            %ul.dropdown
+              %li
+                = link_to "Log out", destroy_user_session_path, method: :delete
+              %li
+                = link_to 'Edit profile', edit_user_path(current_user)
+      - else
+        %ul.left
+          %li
+            = link_to "Sign In", new_user_session_path
+          %li
+            = link_to "Register", new_user_registration_path
+          %li
+            = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
