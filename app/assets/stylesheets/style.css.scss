@@ -5,18 +5,12 @@ body {
   -o-background-size: cover;
   background-size: cover;
   .sign-up {
-    font-family: 'chawpregular';
   }
   .user {
     .small-12, .medium-4, .large-2 {
-      font-family: 'chawpregular';
       margin:0 auto;
       text-align:center;
-      padding:1em;
-      border-radius:15px;
       h2 {
-        font-family: 'chawpregular';
-        color: white;
       }
       img {
         border-radius:15px;
@@ -24,17 +18,21 @@ body {
     }
   }
   .game_invites {
-    border-radius:15px;
     h2, h3 {
       text-align:center;
-      font-family: 'chawpregular';
-      color: white;
     }
     li {
       text-align: center;
-      font-family: 'chawpregular';
-      color: white;
-      border:1px solid black;
+    }
+  }
+  .game_results {
+    h1 {
+      text-align: center;
+    }
+  }
+  .created_quizzes {
+    h1 {
+      text-align: center;
     }
   }
 }
