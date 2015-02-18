@@ -1,6 +1,7 @@
-%h2
-  Create an answer
-= form_for @answer_choice do |f|
-  = f.hidden_field :question_id
-  = render partial: 'form', locals: { f: f }
-  = f.submit 'Create answer'
+.sign-up.small-12.medium-8.large-4.small-centered.columns
+  %h2
+    Create an answer
+  = form_for @answer_choice do |f|
+    = f.hidden_field :question_id
+    = render partial: 'form', locals: { f: f }
+    = f.submit 'Create answer'
