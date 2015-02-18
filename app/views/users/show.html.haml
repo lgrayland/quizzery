@@ -12,7 +12,7 @@
 .game_invites.row
   %h2
     Game invitations
-  %ul.large-block-grid-4
+  %ul.large-block-grid-3
     - @user.participations.each do |participation|
       %li
         %h3
@@ -28,5 +28,5 @@
           out of
           = participation.game.quiz.questions.count
 
-        = link_to "Play Game", game_path(participation.game)
-        = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}
+        = link_to "Play Game", game_path(participation.game), class: "button tiny radius"
+        = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}, class: "button tiny radius"
