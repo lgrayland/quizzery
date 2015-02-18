@@ -3,4 +3,4 @@
 = form_for @answer_choice do |f|
   = f.hidden_field :question_id
   = render partial: 'form', locals: { f: f }
-  = f.submit 'Update answer'
+  = f.submit 'Update answer', class: "buttton tiny radius"

@@ -6,6 +6,7 @@
       - @questions.each do |question|
         %li
           = question.question
+          %br
           = link_to 'Show', question_path(question), class: "button tiny radius"
   -else
     %p
