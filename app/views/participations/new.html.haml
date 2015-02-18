@@ -1,7 +1,8 @@
-%h2
-  Add players to
-  = @game.name
+.sign-up.small-12.medium-8.large-4.small-centered.columns
+  %h2
+    Add players to
+    = @game.name
 
-= form_for [@game, @participation] do |f|
-  = render partial: 'form', locals: { f: f }
-  = f.submit 'Add players'
+  = form_for [@game, @participation] do |f|
+    = render partial: 'form', locals: { f: f }
+    = f.submit 'Add players', class: "button tiny radius"

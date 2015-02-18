@@ -1,13 +1,14 @@
-.created_questions
+.created_questions.row
   %h1
     Your Questions
   - if current_user.created_questions.any?
-    - @questions.each do |question|
-      %li.block
-        = question.question
-        = link_to 'Show', question_path(question)
+    %ul.large-block-grid-3
+      - @questions.each do |question|
+        %li
+          = question.question
+          = link_to 'Show', question_path(question), class: "button tiny radius"
   -else
     %p
       You haven't created any questions, why not try creating one?
       %br
-      =link_to 'Create a question', new_question_path
+      =link_to 'Create a question', new_question_path, class: "button tiny radius"

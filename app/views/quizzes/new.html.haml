@@ -1,6 +1,6 @@
-.form
+.sign-up.small-12.medium-8.large-4.small-centered.columns
   %h2
     Create a quiz
   = form_for @quiz do |f|
     = render partial: 'form', locals: { f: f }
-    = f.submit 'Create quiz', class: "button"
+    = f.submit 'Create quiz', class: "button tiny radius"

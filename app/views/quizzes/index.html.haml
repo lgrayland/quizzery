@@ -1,15 +1,15 @@
-.created_quizzes
+.created_quizzes.row
   %h1
     Your quizzes
-  
   - if current_user.created_quizzes.any?
-    - @quizzes.each do |quiz|
-      %li.block
-        %h2
-          = quiz.name
-        %br
-        = link_to 'Show', quiz_path(quiz.id)
-        = link_to 'Delete', quiz_path(quiz), method: :delete, data: {confirm: "Are you sure"}
+    %ul.large-block-grid-4
+      - @quizzes.each do |quiz|
+        %li
+          %h2
+            = quiz.name
+          %br
+          = link_to 'Show', quiz_path(quiz.id), class: "button tiny radius"
+          = link_to 'Delete', quiz_path(quiz), class: "button tiny radius", method: :delete, data: {confirm: "Are you sure"}
   - else
     %p
       You haven't created any quizzes, why not try creating one?

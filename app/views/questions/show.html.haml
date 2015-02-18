@@ -1,22 +1,24 @@
-%h1 
-  Question
+.question.row
+  %h1 
+    Question
 
-%h2
-  = @question.question
+  %h2
+    = @question.question
 
-= image_tag @question.question_image.url
+  = image_tag @question.question_image.url
 
-%p
-  Created by:
+  %p
+    Created by:
+    =@question.creator.nick_name
 
-%h1
-  Answers
+  %h1
+    Answers
+  %ul.large-block-grid-3
+    - @answer_choices.each do |answer|
+      %li
+        = answer.answer
+        = link_to 'Delete', answer_choice_path(answer), method: :delete, data: {confirm: "Are you sure"}, class: "button tiny radius"
+        = link_to 'Edit', edit_answer_choice_path(answer), class: "button tiny radius"
 
-- @answer_choices.each do |answer|
-  = answer.answer
-  = link_to 'Delete', answer_choice_path(answer), method: :delete, data: {confirm: "Are you sure"}
-  = link_to 'Edit', edit_answer_choice_path(answer)
-
-%br
-%br
-=link_to 'Add Answers', new_answer_choice_path(question_id: @question.id)
+  %br
+  =link_to 'Add Answers', new_answer_choice_path(question_id: @question.id), class: "button tiny radius"

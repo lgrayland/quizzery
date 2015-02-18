@@ -1,5 +1,6 @@
-%h2
-  Create a question
-= form_for @question do |f|
-  = render partial: 'form', locals: { f: f }
-  = f.submit 'Create question'
+.sign-up.small-12.medium-8.large-4.small-centered.columns
+  %h2
+    Create a question
+  = form_for @question do |f|
+    = render partial: 'form', locals: { f: f }
+    = f.submit 'Create question', class: "button tiny radius"
