@@ -1,77 +1,42 @@
+
+h1 {
+  text-align:center;
+}
 body {
 
-  .container {
-    @include outer-container;
-    .form {
-      @include span-columns(6);
-      @include shift(3);
-      background:$box-color;
-      border-radius:$box-radius;
-      padding:$box-padding;
-      text-align:center;
-    }
-    .prof_details {
-      @include span-columns(6);
-      @include shift(3);
-      background:$box-color;
-      border-radius:$box-radius;
-      padding:$box-padding;
-      text-align:center;
-      float:none;
-    }
-  }
-  .game_invites {
-    @include outer_container;
-    background:$box-color;
-    border-radius:$box-radius;
-    padding:$box-padding;
-    margin-top: 1em;
-    h2 {
-      text-align:center;
-    }
-    .invites {
-      @include span-columns(3);
-      @include omega(4n);
-      border:1px solid black;
-      float:none;
-      display: inline-block;
-    }
-  }
-  .game_results, .created_questions, .created_quizzes{
-    @include outer_container;
-    background:$box-color;
-    border-radius:$box-radius;
-    padding:$box-padding;
-    margin-top: 1em;
-    h1, h2 {
-      text-align:center;
-    }
-    .results, .questions, .quizzes {
-      @include span-columns(3);
-      @include omega(4n);
-      border:1px solid black;
-      float:none;
-      display:inline-block;
-    }
-  }
-  
-  img {
-    border-radius:$box-radius;
-  }
-  .blank-avatar {
-    height:150px;
-    width:150px;
-  }
-  .logo {
-    border-radius:15px;
-    margin-top:1em;
-    width:400px;
-  }
-
-  .button{
-    background:$button-color;
-    border-radius:$button-radius;
-    padding:$box-padding;
-    color:white;
-  }
+}
+footer {
+   position:fixed;
+   left:0;
+   bottom:0;
+   height:30px;
+   width:100%;
+   text-align:center;
+   color:white;
+   background-color:#333333;
+}
+.small-4, .small-6, .small-8 {
+  @include border-radius(15px);
+  background:rgba(0, 0, 0, 0.5);
+  padding:10px;
+}
+.username {
+  display: block; 
+  color: white;
+  padding: 0 15px; 
+  line-height: 45px;
+  font-size:14px;
+}
+label {
+  color:white;
+}
+.profile-pic {
+  @include border-radius(15px);
+  text-align: center;
+}
+.user-image {
+  @include border-radius(15px);
+}
+.center {
+  text-align:center;
 }
