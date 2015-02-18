@@ -1,33 +1,32 @@
-.prof_details
-  %h1
-    -if @user.nick_name?
-      = @user.nick_name
+.user
+  .small-12.medium-4.large-2
+    - if @user.user_image?    
+      = image_tag @user.user_image.thumb.url
     - else
-      = @user.email
-  - if @user.user_image?    
-    = image_tag @user.user_image.thumb.url
-  - else
-    = image_tag 'blank-avatar.png', class: 'blank-avatar'
-
-.game_invites
+      = image_tag 'blank-avatar.png', class: 'blank-avatar'
+    %h2
+      -if @user.nick_name?
+        = @user.nick_name
+      - else
+        = @user.email
+.game_invites.row
   %h2
     Game invitations
+  %ul.large-block-grid-4
+    - @user.participations.each do |participation|
+      %li
+        %h3
+          Game name:
+          = participation.game.try(:name)
+        %h3
+          Quiz name:
+          = participation.game.quiz.name
 
-  - @user.participations.each do |participation|
-    %li.invites  
-      %h3
-        Game name:
-        = participation.game.try(:name)
-      %h3
-        Quiz name:
-        = participation.game.quiz.name
+        %h3
+          current score:
+          = participation.current_score
+          out of
+          = participation.game.quiz.questions.count
 
-      %h3
-        current score:
-        = participation.current_score
-        out of
-        = participation.game.quiz.questions.count
-
-      = link_to "Play Game", game_path(participation.game)
-      = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}
-      %br
+        = link_to "Play Game", game_path(participation.game)
+        = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}

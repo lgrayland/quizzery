@@ -1,10 +1,31 @@
 
-h1 {
-  text-align:center;
-}
 body {
-
+  .user {
+    .small-12, .medium-4, .large-2 {
+      margin:0 auto;
+      text-align:center;
+      background:#e8e8e8;
+      padding:1em;
+      border-radius:15px;
+      img {
+      border-radius:15px;
+      }  
+    }
+  }
+  .game_invites{
+    margin-top:1em;
+    background:#e8e8e8;
+    padding:1em;
+    border-radius:15px;
+    h2 {
+      text-align:center;
+    }
+    li {
+      border:1px solid black;
+    }
+  }
 }
+
 footer {
    position:fixed;
    left:0;
@@ -14,22 +35,4 @@ footer {
    text-align:center;
    color:white;
    background-color:#333333;
-}
-.small-4, .small-6, .small-8 {
-  @include border-radius(15px);
-  background:rgba(0, 0, 0, 0.5);
-  padding:10px;
-}
-.username {
-  display: block; 
-  color: white;
-  padding: 0 15px; 
-  line-height: 45px;
-  font-size:14px;
-}
-label {
-  color:white;
-}
-.center {
-  text-align:center;
 }
