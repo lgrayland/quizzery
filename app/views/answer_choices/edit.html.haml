@@ -1,6 +1,7 @@
-%h2
-  Edit an answer
-= form_for @answer_choice do |f|
-  = f.hidden_field :question_id
-  = render partial: 'form', locals: { f: f }
-  = f.submit 'Update answer', class: "buttton tiny radius"
+.sign-up.small-12.medium-8.large-4.small-centered.columns
+  %h2
+    Edit an answer
+  = form_for @answer_choice do |f|
+    = f.hidden_field :question_id
+    = render partial: 'form', locals: { f: f }
+    = f.submit 'Update answer', class: "buttton tiny radius"
