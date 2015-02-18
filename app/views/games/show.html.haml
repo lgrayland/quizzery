@@ -1,14 +1,15 @@
-%h1
-  = @game.name
+.question_show.row
+  %h1
+    = @game.name
 
-%h2
-  =@game.creator.try(:nick_name)
+  %h2
+    =@game.creator.try(:nick_name)
 
-- if @game.playing?
-  = render 'game_playing'
-- elsif @game.finished?
-  %p
-    This game has finished
-    = render 'game_score'
-- else
-  = render 'waiting_for_start'
+  - if @game.playing?
+    = render 'game_playing'
+  - elsif @game.finished?
+    %p
+      This game has finished
+      = render 'game_score'
+  - else
+    = render 'waiting_for_start'

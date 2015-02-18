@@ -5,6 +5,6 @@
   =@quiz.owner.try(:nick_name)
   
 %br
-=link_to 'Add Questions', new_quiz_question_path(quiz_id: @quiz.id)
+=link_to 'Add Questions', new_quiz_question_path(quiz_id: @quiz.id), class: "button tiny radius"
 
-=link_to 'Create a Question', new_question_path
+=link_to 'Create a Question', new_question_path, class: "button tiny radius"

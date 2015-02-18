@@ -1,6 +1,4 @@
 - @game.participations.each do |participation|
-  %li
-    = participation.inspect
+    = participation.user.email
 
-= button_to 'Start game', start_game_path(@game)
-= link_to 'Add more players', edit_game_participation_path
+= button_to 'Start game', start_game_path(@game), class: "button tiny radius"

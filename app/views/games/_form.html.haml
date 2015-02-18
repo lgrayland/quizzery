@@ -1,3 +1,3 @@
 = f.label :name
-= f.text_field :name
-= f.collection_select(:quiz_id, @quizzes, :id, :name)
+= f.text_field :name, required: :true
+= f.collection_select(:quiz_id, @quizzes, :id, :name, required: :true)
