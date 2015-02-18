@@ -1,23 +1,27 @@
-%h1
-  = @user.nick_name
-  = image_tag @user.user_image.thumb.url
+.prof_details
+  %h1
+    = @user.nick_name
+    = image_tag @user.user_image.thumb.url
 
-%h2
-  Game invitations
-- @user.participations.each do |participation|
-  %h3
-    Game name:
-    = participation.game.try(:name)
-  %h3
-    Quiz name:
-    = participation.game.quiz.name
+.game_invites
+  %h2
+    Game invitations
 
-  %h3
-    current score:
-    = participation.current_score
-    out of
-    = participation.game.quiz.questions.count
+  - @user.participations.each do |participation|
+    %li.invites  
+      %h3
+        Game name:
+        = participation.game.try(:name)
+      %h3
+        Quiz name:
+        = participation.game.quiz.name
 
-  = link_to "Play Game", game_path(participation.game)
-  = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}
-  %br
+      %h3
+        current score:
+        = participation.current_score
+        out of
+        = participation.game.quiz.questions.count
+
+      = link_to "Play Game", game_path(participation.game)
+      = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}
+      %br

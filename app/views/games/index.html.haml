@@ -1,13 +1,15 @@
-- @games.each do |game|
-  %h2
-    Game name:
-  = game.name
-  %p
-    Game status
-    = game.status
-  - game.participations.each do |player|
-    = player.user.nick_name
-    got:
-    = player.current_score
-    out of
-    = player.game.quiz.questions.count
+.game_results
+  - @games.each do |game|
+    %h2
+      Results for:
+      = game.name
+    %p
+      Game status
+      = game.status
+    - game.participations.each do |player|
+      %li.results  
+        = player.user.nick_name
+        got:
+        = player.current_score
+        out of
+        = player.game.quiz.questions.count

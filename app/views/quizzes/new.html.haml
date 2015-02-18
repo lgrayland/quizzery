@@ -1,5 +1,6 @@
-%h2
-  Create a quiz
-= form_for @quiz do |f|
-  = render partial: 'form', locals: { f: f }
-  = f.submit 'Create quiz'
+.form
+  %h2
+    Create a quiz
+  = form_for @quiz do |f|
+    = render partial: 'form', locals: { f: f }
+    = f.submit 'Create quiz', class: "button"

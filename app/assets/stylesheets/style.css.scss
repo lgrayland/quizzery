@@ -1,20 +1,70 @@
 body {
-  // background:#6600cc;
 
   .container {
     @include outer-container;
-    .left_half {
-      @include span-columns(4);
+    .form {
+      @include span-columns(6);
+      @include shift(3);
+      background:$box-color;
+      border-radius:$box-radius;
+      padding:$box-padding;
+      text-align:center;
     }
-    .right_half {
-      @include span-columns(4);
+    .prof_details {
+      @include span-columns(6);
+      @include shift(3);
+      background:$box-color;
+      border-radius:$box-radius;
+      padding:$box-padding;
+      text-align:center;
+      float:none;
     }
-
   }
+  .game_invites {
+    @include outer_container;
+    background:$box-color;
+    border-radius:$box-radius;
+    padding:$box-padding;
+    margin-top: 1em;
+    h2 {
+      text-align:center;
+    }
+    .invites {
+      @include span-columns(3);
+      @include omega(4n);
+      border:1px solid black;
+      float:none;
+      display: inline-block;
+    }
+  }
+  .game_results {
+    @include outer_container;
+    background:$box-color;
+    border-radius:$box-radius;
+    padding:$box-padding;
+    margin-top: 1em;
+    h2 {
+      text-align:center;
+    }
+    .results {
+      @include span-columns(3);
+      @include omega(4n);
+      border:1px solid black;
+      float:none;
+      display:inline-block;
+    }
+  } 
+
   .logo {
     border-radius:15px;
     margin-top:1em;
     width:400px;
   }
 
+  .button{
+    background:$button-color;
+    border-radius:$button-radius;
+    padding:$box-padding;
+    color:white;
+  }
 }
