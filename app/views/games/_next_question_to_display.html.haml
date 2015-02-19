@@ -4,7 +4,7 @@
   = @participation.current_quiz_question.question.question
   %br
   - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
-    = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer)
+    = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer), class: "button tiny radius"
   %br
 - else
   please wait for others to answer
