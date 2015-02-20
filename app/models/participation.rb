@@ -6,9 +6,9 @@ class Participation < ActiveRecord::Base
   has_many :given_answers
   has_many :answered_quiz_questions, through: :given_answers, source: :quiz_question
 
-  validates :quiz_id, presence: true
-  validates :game_id, presence: true
-  validates :user_id, presence: true
+  # validates :quiz_id, presence: true
+  # validates :game_id, presence: true
+  # validates :user_id, presence: true
 
   def current_score
     given_answers.count { |given_answer| given_answer.answer_choice.correct }
