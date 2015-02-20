@@ -1,10 +1,10 @@
 - if @participation.current_quiz_question.position <= @game.current_quiz_question.position && !@participation.answered_quiz_question_ids.include?(@participation.current_quiz_question.id) 
   = image_tag @participation.current_quiz_question.question.question_image.detail.url
-  %br
+  
   = @participation.current_quiz_question.question.question
-  %br
+  
   - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
     = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer), class: "button tiny radius"
-    %br
+    
 - else
   %h2 Please wait for others to answer
