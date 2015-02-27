@@ -2,13 +2,13 @@ class Participation < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :game
-  belongs_to :quiz
+  has_one :quiz, through: :game
   has_many :given_answers
   has_many :answered_quiz_questions, through: :given_answers, source: :quiz_question
 
-  # validates :quiz_id, presence: true
-  # validates :game_id, presence: true
-  # validates :user_id, presence: true
+  validates :quiz_id, presence: true
+  validates :game_id, presence: true
+  validates :user_id, presence: true
 
   def current_score
     given_answers.count { |given_answer| given_answer.answer_choice.correct }
