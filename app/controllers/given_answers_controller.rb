@@ -5,11 +5,11 @@ class GivenAnswersController < ApplicationController
 
   def create
     game = Game.find(params[:game_id])
-    answer_choice = AnswerChoice.find(params[:answer_choice_id])
-    quiz_question = QuizQuestion.find(params[:quiz_question_id])
+    # answer_choice = AnswerChoice.find(params[:answer_choice_id])
+    # quiz_question = QuizQuestion.find(params[:quiz_question_id])
     participation = game.participation_for(current_user)
 
-    given_answer = participation.given_answers.new(quiz_question: quiz_question, answer_choice: answer_choice )
+    given_answer = participation.given_answers.new(quiz_question_id: params[:quiz_question_id], answer_choice_id: params[:answer_choice_id], game_id: params[:game_id] )
 
     given_answer.save
       

@@ -6,7 +6,6 @@ class Participation < ActiveRecord::Base
   has_many :given_answers
   has_many :answered_quiz_questions, through: :given_answers, source: :quiz_question
 
-  validates :quiz_id, presence: true
   validates :game_id, presence: true
   validates :user_id, presence: true
 
@@ -15,7 +14,7 @@ class Participation < ActiveRecord::Base
   end
 
   def current_quiz_question
-    game.quiz.quiz_questions.detect do |quiz_question|
+    quiz.quiz_questions.detect do |quiz_question|
       !answered_quiz_question_ids.include?(quiz_question.id)
     end
   end
