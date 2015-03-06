@@ -22,11 +22,11 @@
           Quiz name:
           = participation.game.quiz.name
 
-        %h3
-          current score:
-          = participation.current_score
-          out of
-          = participation.game.quiz.questions.count
+        / %h3
+        /   current score:
+        /   = participation.current_score
+        /   out of
+        /   = participation.game.quiz.questions.count
 
         = link_to "Play Game", game_path(participation.game), class: "button tiny radius"
         = link_to "Decline invite", game_participation_path(participation.game.id, participation.id), method: :delete, data: {confirm: "Are you sure"}, class: "button tiny radius"

@@ -6,6 +6,8 @@ class Game < ActiveRecord::Base
   has_many :participations
   has_many :participating_users, through: :participations, source: :user
 
+  validates :name, uniqueness: { case_sensitive: false }
+
   include AASM
 
   aasm column: :status do
@@ -48,6 +50,7 @@ class Game < ActiveRecord::Base
 
   def over?
     number_of_quiz_questions == number_of_questions_answered
+    
   end
 
   def current_quiz_question
