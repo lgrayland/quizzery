@@ -2,9 +2,6 @@
   %h1
     = @game.name
 
-  %h2
-    =@game.creator.try(:nick_name)
-
   - if @game.playing?
     = render 'game_playing'
   - elsif @game.finished?

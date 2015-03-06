@@ -9,9 +9,10 @@ class Participation < ActiveRecord::Base
   validates :game_id, presence: true
   validates :user_id, presence: true
 
-  def current_score
-    given_answers.count { |given_answer| given_answer.answer_choice.correct }
-  end
+  # def current_score
+  #   given_answers.count{ |given_answer| given_answer.answer_choice.correct }
+  #   # raise
+  # end
 
   def current_quiz_question
     quiz.quiz_questions.detect do |quiz_question|
