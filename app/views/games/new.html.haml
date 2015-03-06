@@ -1,15 +1,6 @@
 .sign-up.small-12.medium-8.large-4.small-centered.columns
   %h2
     Create a game
-  = form_for @game do |f|
-    - if @game.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@game.errors.count, "error")
-          prohibited this game from being saved:
-        %ul
-          - @game.errors.full_messages.each do |message|
-            %li= message
-        
+  = form_for @game do |f|        
     = render partial: 'form', locals: { f: f }
     = f.submit 'Create game', class: "button tiny radius"

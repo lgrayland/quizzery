@@ -13,12 +13,13 @@
         - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
           = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer), class: "button tiny radius"
       - elsif @game.over?
+        - @game.finish!
         = "Game over"
       - else
         = "Please wait for others to answer"
-    - else
+    - else @game.over?
       - @game.finish!
-      = render 'game_answers'
+      = "game over"
   - elsif @game.finished?
     %p
       This game has finished

@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
   has_many :participations
   has_many :participating_users, through: :participations, source: :user
 
+  validates :name, presence: true
   validates :name, uniqueness: { case_sensitive: false }
 
   include AASM
@@ -54,12 +55,6 @@ class Game < ActiveRecord::Base
   end
 
   def current_quiz_question
-    # quiz.quiz_questions.detect do |quiz_question|
-    #   # Count the number of given answers for a quiz question
-    #   # If less than the number of participations
-    #   number_of_answers_given < participations.count
-    # end
-
     quiz.quiz_questions[number_of_questions_answered] if all_participants_answered? && !over?
   end
 

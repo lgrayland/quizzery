@@ -20,5 +20,4 @@ class Participation < ActiveRecord::Base
     end
   end
 
-
 end
