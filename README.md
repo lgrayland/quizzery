@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/lgrayland/quizzery/badges/gpa.svg)](https://codeclimate.com/github/lgrayland/quizzery)
+[![Test Coverage](https://codeclimate.com/github/lgrayland/quizzery/badges/coverage.svg)](https://codeclimate.com/github/lgrayland/quizzery)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
