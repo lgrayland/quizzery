@@ -30,7 +30,7 @@ $(function(){ $(document).foundation();
           $('.typewriter').text(type);
           typeWriter();
           
-          if (character == length) {
+          if (character === length) {
               clearTimeout(timeOut);
           }
           

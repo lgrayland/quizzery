@@ -47,6 +47,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
 end
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 gem 'rails_12factor', group: :production
 
