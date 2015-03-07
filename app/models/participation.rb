@@ -20,4 +20,8 @@ class Participation < ActiveRecord::Base
     end
   end
 
+  def answered_all_questions?
+    given_answers.count == quiz.questions.count
+  end
+
 end

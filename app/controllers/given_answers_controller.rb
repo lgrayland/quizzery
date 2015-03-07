@@ -12,6 +12,7 @@ class GivenAnswersController < ApplicationController
     given_answer = participation.given_answers.new(quiz_question_id: params[:quiz_question_id], answer_choice_id: params[:answer_choice_id], game_id: params[:game_id] )
 
     given_answer.save
+    game.finish! if game.over?
       
     if given_answer.errors.any?
       messages = []

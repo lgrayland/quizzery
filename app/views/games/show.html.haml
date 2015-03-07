@@ -2,9 +2,15 @@
   %h1
     = @game.name
 
-  - if @game.playing?
-    - if @participation.current_quiz_question
-      - if @game.current_quiz_question.present?
+  - if @game.finished? || @participation.answered_all_questions?
+    %p
+      This game has finished
+      = render 'game_answers'
+  - elsif @game.inviting?
+    = render 'waiting_for_start'
+  - else
+    - if @participation.current_quiz_question         
+      - if @game.current_quiz_question == @participation.current_quiz_question
         
         = image_tag @participation.current_quiz_question.question.question_image.detail.url
           
@@ -12,17 +18,5 @@
         
         - @participation.current_quiz_question.question.answer_choices.shuffle.each do |answer|
           = button_to answer.answer, game_given_answer_path(@game, @participation.current_quiz_question, answer), class: "button tiny radius"
-      - elsif @game.over?
-        - @game.finish!
-        = "Game over"
       - else
         = "Please wait for others to answer"
-    - else @game.over?
-      - @game.finish!
-      = "game over"
-  - elsif @game.finished?
-    %p
-      This game has finished
-      = render 'game_answers'
-  - else
-    %p Please wait for players
